@@ -1,6 +1,17 @@
 <head>
     <title>Piedra papel y tijera</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body>
+<!-- Crear 3 botones, uno por cada elección -->
+<h1>Elecciones de Jugador</h1>
+
+    <button id="rockBtn" class="button">Rock</button>
+    <button id="paperBtn"class="button">Paper</button>
+    <button id="scissorsBtn"class="button">Scissors</button>
+
+
+
 <script>
 const move=["rock","paper","scissors"];
 
@@ -12,43 +23,78 @@ function playerPlay(){
     return move[Math.floor(Math.random()*move.length)];
 }
 
-function playRound(){
-    const playerSelection = prompt("que eliges?");
-    const computerSelection = computerPlay();
-
-    if (playerSelection==="rock" && computerSelection==="scissors"){
-        return "You won rock beats scissors";
-    }else if (playerSelection==="rock" && computerSelection==="rock"){
-        return "You tied";
-    }else if (playerSelection==="rock" && computerSelection==="paper"){
-        return "You lose rock loses to paper";
-    }
-    else if (playerSelection==="paper" && computerSelection==="paper"){
-        return "You tied";
-    }else if (playerSelection==="paper" && computerSelection==="rock"){
-        return "You won paper beats rock";
-    }else if (playerSelection==="paper" && computerSelection==="scissors"){
-        return "You lose scissors beats paper";
-    }else if (playerSelection==="paper" && computerSelection==="paper"){
-        return "You tied";
-    }else if (playerSelection==="scissors" && computerSelection==="paper"){
-        return "You won scissors beat paper";
-    }else if (playerSelection==="scissors" && computerSelection==="scissors"){
-        return "You tied";
-    }else if (playerSelection==="scissors" && computerSelection==="rock"){
-        return "You Lose Rock Beats Paper";
-    }
+var playerSelection = "";
+var computerSelection = computerPlay();
 
 
-}
+const rockElection= document.querySelector("#rockBtn");
+rockElection.addEventListener('click',function playRound(){
+    playerSelection = "rock";
+    computerSelection= computerPlay();
+     if (playerSelection==="rock" && computerSelection==="scissors"){
+         console.log("You won rock beats scissors") ;
+     }else if (playerSelection==="rock" && computerSelection==="rock"){
+         console.log("You tied");
+     }else if (playerSelection==="rock" && computerSelection==="paper"){
+         console.log("You lose rock loses to paper");
+     }
+    })
+const paperElection= document.querySelector("#paperBtn");
+paperElection.addEventListener('click',function playRound(){
+    playerSelection = "paper";
+    computerSelection= computerPlay();
+     if (playerSelection==="paper" && computerSelection==="rock"){
+         console.log("You won paper beats rock") ;
+     }else if (playerSelection==="paper" && computerSelection==="scissors"){
+         console.log("You lose paper loses against scissors");
+     }else if (playerSelection==="paper" && computerSelection==="paper"){
+         console.log("You tied");
+     }
+    })
+    const scissorsElection= document.querySelector("#scissorsBtn");
+scissorsElection.addEventListener('click',function playRound(){
+    playerSelection = "scissors";
+    computerSelection= computerPlay();
+     if (playerSelection==="scissors" && computerSelection==="rock"){
+         console.log("You lose scissors loses against rock") ;
+     }else if (playerSelection==="scissors" && computerSelection==="scissors"){
+         console.log("You Tied");
+     }else if (playerSelection==="scissors" && computerSelection==="paper"){
+         console.log("You won scissors beats paper");
+     }
+    })
 
-    function game(){
-        console.log(playRound());
-        console.log(playRound());
-        console.log(playRound());
-        console.log(playRound());
-        console.log(playRound());
-    }
+
+
+
+
+// function playRound(){
+//     var playerSelection = prompt("");
+//     const computerSelection = computerPlay();
+
+//     if (playerSelection==="rock" && computerSelection==="scissors"){
+//         return "You won rock beats scissors";
+//     }else if (playerSelection==="rock" && computerSelection==="rock"){
+//         return "You tied";
+//     }else if (playerSelection==="rock" && computerSelection==="paper"){
+//         return "You lose rock loses to paper";
+//     }
+//     else if (playerSelection==="paper" && computerSelection==="paper"){
+//         return "You tied";
+//     }else if (playerSelection==="paper" && computerSelection==="rock"){
+//         return "You won paper beats rock";
+//     }else if (playerSelection==="paper" && computerSelection==="scissors"){
+//         return "You lose scissors beats paper";
+//     }else if (playerSelection==="paper" && computerSelection==="paper"){
+//         return "You tied";
+//     }else if (playerSelection==="scissors" && computerSelection==="paper"){
+//         return "You won scissors beat paper";
+//     }else if (playerSelection==="scissors" && computerSelection==="scissors"){
+//         return "You tied";
+//     }else if (playerSelection==="scissors" && computerSelection==="rock"){
+//         return "You Lose Rock Beats Paper";
+//     }   
+// }
 </script>
 
 </body>
